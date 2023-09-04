@@ -25,4 +25,11 @@ class Person
     def age = (value)
         @age = value
     end
+
+    private def of_age?
+        if age >= 18
+            return true
+        end
+        return false
+    end 
 end
