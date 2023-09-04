@@ -32,4 +32,13 @@ class Person
         end
         return false
     end 
+
+    def can_use_services?
+        if of_age?
+            return true
+        elsif parent_permission
+            return true
+        end
+        return false
+    end
 end
