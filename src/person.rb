@@ -1,44 +1,28 @@
 class Person
-    def initialize(age, name = 'Unknown', parent_permission = true)
-        @id
-        @name = name
-        @age = age
-        @parent_permission = parent_permission
+  def initialize(age, name = 'Unknown', parent_permission = true)
+    @id
+    @name = name
+    @age = age
+    @parent_permission = parent_permission
+  end
+
+  attr_reader :id
+
+  attr_accessor :age :name
+
+  private
+
+  def of_age?
+    @age >= 18
+  end
+
+  def can_use_services?
+    if of_age?
+      return true
+    elsif @parent_permission
+      return true
     end
 
-    def id
-        @id
-    end
-    
-    def name
-        @name
-    end
-
-    def age
-        @age
-    end
-
-    def name = (value)
-        @name = value
-    end
-
-    def age = (value)
-        @age = value
-    end
-
-    private def of_age?
-        if age >= 18
-            return true
-        end
-        return false
-    end 
-
-    def can_use_services?
-        if of_age?
-            return true
-        elsif parent_permission
-            return true
-        end
-        return false
-    end
+    false
+  end
 end
