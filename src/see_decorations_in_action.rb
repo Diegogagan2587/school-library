@@ -1,5 +1,7 @@
 require './person'
 require './decorator_base'
+require './decorator_capitalize'
+require './decorator_trimmer'
 
 person = Person.new(22, 'maximilianus')
 puts person.correct_name
