@@ -12,5 +12,3 @@ class Classroom
     student.classroom = self
   end
 end
-
-# classroom has many students
