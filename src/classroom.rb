@@ -6,6 +6,10 @@ class Classroom
     @label = label
     @students = []
   end
+
+  def add_student(student)
+    @students.push(student)
+  end
 end
 
 # classroom has many students
