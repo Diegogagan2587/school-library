@@ -22,8 +22,7 @@ class App
   end
 
   def create_a_person
-    @input
-    puts 'Do you wnat to create a student (1) or a teacher (2)? [Input the number]:',
+    puts 'Do you wnat to create a student (1) or a teacher (2)? [Input the number]:'
     @input = "#{gets.chomp}"
   end
 
@@ -36,7 +35,7 @@ class App
     elsif @answer == '2'
       #
     elsif @answer == '3'
-      #
+      create_a_person()
     elsif @answer == '4'
       #
     elsif @answer == '5'
