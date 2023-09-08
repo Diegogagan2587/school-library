@@ -1,3 +1,5 @@
+require './src/book'
+
 class App
   def initialize(input=nil)
     @input = input
@@ -7,7 +9,7 @@ class App
 
   def display_menu
     puts "Welcome to School Library App!"
-    puts 'Please choose and option by entering a number: git '
+    puts 'Please choose and option by entering a number:'
     puts [
         '1 - List all books',
         '2 - List all people',
@@ -19,25 +21,33 @@ class App
     ]
   end
 
+  def create_a_person
+    @input
+    puts 'Do you wnat to create a student (1) or a teacher (2)? [Input the number]:',
+    @input = "#{gets.chomp}"
+  end
+
   def run
     display_menu()
-    answer = gets.chomp
+    @answer = "#{gets.chomp}"
 
-    if answer == 1
-      app.list_all_books    
-    elsif answer == 2
-      app.list_all_people
-    elsif answer == 3
-      app.create_person
-    elsif answer == 4
-      app.create_book
-    elsif answer == 5
-      app.create_rental
-    elsif answer == 6
-      app.list_all_rentals_for_one_person
-    elsif answer == 7
+    if @answer == '1'
+      #   
+    elsif @answer == '2'
+      #
+    elsif @answer == '3'
+      #
+    elsif @answer == '4'
+      #
+    elsif @answer == '5'
+      #
+    elsif @answer == '6'
+      #
+    elsif @answer == '7'
       return
-    else answer = gets.chomp
+    else 
+      puts 'Please select a valid option'
+      run()
     end
   end
 end
