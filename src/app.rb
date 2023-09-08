@@ -1,10 +1,12 @@
-require './src/book'
+require './book'
+require './student'
+require './teacher'
+
 
 class App
-  def initialize(input=nil)
-    @input = input
-    puts 'App ins runing'
-    puts 'with input', input
+  def initialize
+    @students = []
+    @teachers = []
   end
 
   def display_menu
@@ -24,6 +26,11 @@ class App
   def create_a_person
     puts 'Do you wnat to create a student (1) or a teacher (2)? [Input the number]:'
     @input = "#{gets.chomp}"
+    if @input == '1'
+      student = Student.new
+    elsif @input == '2'
+      teacher == Teacher.new
+    end
   end
 
   def run
