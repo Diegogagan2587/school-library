@@ -5,12 +5,13 @@ require './teacher'
 
 class App
   def initialize
+    puts "Welcome to School Library App!"
+    puts ' '
     @students = []
     @teachers = []
   end
 
   def display_menu
-    puts "Welcome to School Library App!"
     puts 'Please choose and option by entering a number:'
     puts [
         '1 - List all books',
@@ -27,10 +28,24 @@ class App
     puts 'Do you wnat to create a student (1) or a teacher (2)? [Input the number]:'
     @input = "#{gets.chomp}"
     if @input == '1'
-      student = Student.new
+      create_a_student()
     elsif @input == '2'
-      teacher == Teacher.new
+      #teacher == Teacher.new
     end
+  end
+
+  def create_a_student
+    @classroom = 'Unknown'
+    print 'Age:'
+    @age = gets.chomp
+    print 'Name:'
+    @name = gets.chomp
+    print 'Has parent permission? [Y/N]:'
+    @parent_permission = gets.chomp
+    puts 'Person created successfully'
+    puts ' '
+    @students.push(Student.new(@age, @classroom, @name, @parent_permission))
+    run()
   end
 
   def run
