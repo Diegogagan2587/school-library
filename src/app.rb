@@ -26,6 +26,14 @@ class App
     ]
   end
 
+  def list_all_books
+    @books.each { |book|
+    print "Title: \"#{book.title}\","
+    print " Author: #{book.author}"
+    puts ' '
+    }
+    run()
+  end
 
   def create_a_person
     puts 'Do you wnat to create a student (1) or a teacher (2)? [Input the number]:'
@@ -83,7 +91,7 @@ class App
     @answer = "#{gets.chomp}"
 
     if @answer == '1'
-      #   
+      list_all_books()   
     elsif @answer == '2'
       #
     elsif @answer == '3'
