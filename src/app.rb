@@ -53,6 +53,8 @@ class App
       create_a_student()
     elsif @input == '2'
       create_a_teacher()
+    else
+      run()
     end
   end
 
@@ -144,6 +146,7 @@ class App
   end
 
   def run
+    puts " "
     display_menu()
     @answer = "#{gets.chomp}"
 
@@ -159,7 +162,7 @@ class App
       create_a_rental()
     elsif @answer == '6'
       list_rentals_by_person()
-    elsif @answer == '7' || 'exit'
+    elsif @answer == '7' || @answer == 'exit'
       puts "Thank you for using this app!"
       return
     else 
