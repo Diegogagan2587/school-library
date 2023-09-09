@@ -11,6 +11,7 @@ class App
     puts ' '
     @people = []
     @books = []
+    @rentals = []
   end
 
   def display_menu
@@ -125,6 +126,11 @@ class App
     run()
   end
 
+  def list_rentals_by_person
+    puts 'Id of person: '
+    @id = gets.chomp
+  end
+
   def run
     display_menu()
     @answer = "#{gets.chomp}"
@@ -140,7 +146,7 @@ class App
     elsif @answer == '5'
       create_a_rental()
     elsif @answer == '6'
-      #
+      list_rentals_by_person()
     elsif @answer == '7' || 'exit'
       return
     else 
