@@ -3,6 +3,7 @@ require './student'
 require './teacher'
 
 
+
 class App
   def initialize
     puts "Welcome to School Library App!"
@@ -30,7 +31,7 @@ class App
     if @input == '1'
       create_a_student()
     elsif @input == '2'
-      #teacher == Teacher.new
+      create_a_teacher()
     end
   end
 
@@ -44,6 +45,20 @@ class App
     @parent_permission = gets.chomp
     @student = Student.new(@age, @classroom, @name, @parent_permission)
     @students.push(@student)
+    puts 'Person created successfully'
+    puts ' '
+    run()
+  end
+
+  def create_a_teacher
+    print 'Age:'
+    @age = gets.chomp
+    print 'Name:'
+    @name = gets.chomp
+    print 'Specialization:'
+    @specialization = gets.chomp
+    @teacher = Teacher.new(@age, @specialization, @name)
+    @teachers.push(@teacher)
     puts 'Person created successfully'
     puts ' '
     run()
