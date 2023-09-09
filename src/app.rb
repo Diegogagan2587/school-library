@@ -7,6 +7,7 @@ require './rental'
 
 class App
   def initialize
+    puts ' '
     puts "Welcome to School Library App!"
     puts ' '
     @people = []
@@ -15,6 +16,7 @@ class App
   end
 
   def display_menu
+    puts ' '
     puts 'Please choose and option by entering a number:'
     puts [
         '1 - List all books',
@@ -37,11 +39,8 @@ class App
   end
 
   def list_all_people
-    @students.each { |student|
-      puts "[Student] Name: #{student.name}, ID: #{student.id}, Age: #{student.age}"
-    }
-    @teachers.each { |teacher|
-      puts "[Teacher] Name: #{teacher.name}, ID: #{teacher.id}, Age: #{teacher.age}"
+    @people.each { |person|
+      puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     }
     run()
   end
@@ -142,7 +141,7 @@ class App
       @book_author = rental.book.author 
       puts "Date: #{@date}, Book \"#{@book_title}\" by #{@book_author}"
     }
-    puts 'Rentals founded!!!!'
+    run()
   end
 
   def run
@@ -166,6 +165,7 @@ class App
       puts "Thank you for using this app!"
       return
     else 
+      puts ' '
       puts 'Please select a valid option'
       run()
     end
