@@ -42,6 +42,7 @@ class App
     @teachers.each { |teacher|
       puts "[Teacher] Name: #{teacher.name}, ID: #{teacher.id}, Age: #{teacher.age}"
     }
+    run()
   end
 
   def create_a_person
@@ -93,6 +94,10 @@ class App
     puts 'Book created successfully'
     puts ' '
     run()
+  end
+
+  def create_a_rental
+    print 'Select a book from the following list by number'
   end
 
   def run
