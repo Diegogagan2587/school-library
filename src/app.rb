@@ -9,21 +9,8 @@ class App
   def initialize
     puts "Welcome to School Library App!"
     puts ' '
-    @students = []
-    @teachers = []
     @people = []
     @books = []
-    # We add Dummy data for testing methods
-    @students.push(Student.new(12,'D', 'Diego'))
-    @students.push(Student.new(13,'D', 'Marcos'))
-    @teachers.push(Teacher.new(30,'Money','Tito'))
-    @teachers.push(Teacher.new(50,'Math','Bruno'))
-    @people.push(Student.new(12,'D', 'Diego'))
-    @people.push(Student.new(13,'D', 'Marcos'))
-    @people.push(Teacher.new(30,'Money','Tito'))
-    @people.push(Teacher.new(50,'Math','Bruno'))
-    @books.push(Book.new('Harry potter 1', 'some one'))
-    @books.push(Book.new('Harry potter 2', 'some one'))
   end
 
   def display_menu
@@ -77,7 +64,6 @@ class App
     print 'Has parent permission? [Y/N]:'
     @parent_permission = gets.chomp
     @student = Student.new(@age, @classroom, @name, @parent_permission)
-    @students.push(@student)
     @people.push(@student)
     puts 'Person created successfully'
     puts ' '
@@ -92,7 +78,6 @@ class App
     print 'Specialization:'
     @specialization = gets.chomp
     @teacher = Teacher.new(@age, @specialization, @name)
-    @teachers.push(@teacher)
     @people.push(@teacher)
     puts 'Person created successfully'
     puts ' '
