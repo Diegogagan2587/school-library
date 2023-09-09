@@ -42,9 +42,10 @@ class App
     @name = gets.chomp
     print 'Has parent permission? [Y/N]:'
     @parent_permission = gets.chomp
+    @student = Student.new(@age, @classroom, @name, @parent_permission)
+    @students.push(@student)
     puts 'Person created successfully'
     puts ' '
-    @students.push(Student.new(@age, @classroom, @name, @parent_permission))
     run()
   end
 
@@ -64,7 +65,7 @@ class App
       #
     elsif @answer == '6'
       #
-    elsif @answer == '7'
+    elsif @answer == '7' || 'exit'
       return
     else 
       puts 'Please select a valid option'
