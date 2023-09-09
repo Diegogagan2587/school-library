@@ -12,6 +12,13 @@ class App
     @people = []
     @books = []
     @rentals = []
+        # We add Dummy data for testing methods
+        @people.push(Student.new(12,'D', 'Diego'))
+        @people.push(Student.new(13,'D', 'Marcos'))
+        @people.push(Teacher.new(30,'Money','Tito'))
+        @people.push(Teacher.new(50,'Math','Bruno'))
+        @books.push(Book.new('Harry potter 1', 'some one'))
+        @books.push(Book.new('Harry potter 2', 'some one'))
   end
 
   def display_menu
@@ -129,7 +136,18 @@ class App
 
   def list_rentals_by_person
     puts 'Id of person: '
-    @id = gets.chomp
+    @id_person = gets.chomp
+    @rentals_by_person = @rentals.filter {|rental|
+      rental.person.id.to_i == @id_person.to_i
+    }
+
+    @rentals_by_person.each { |rental|
+      @date = rental.date
+      @book_title = rental.book.title
+      @book_author = rental.book.author 
+      puts "Date: #{@date}, Book \"#{@book_title}\" by #{@book_author}"
+    }
+    puts 'Rentals founded!!!!'
   end
 
   def run
