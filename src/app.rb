@@ -7,14 +7,12 @@ class App
   def initialize
     puts ' '
     puts 'Welcome to School Library App!'
-    puts ' '
     @people = []
     @books = []
     @rentals = []
   end
 
   def display_menu
-    puts ' '
     puts 'Please choose and option by entering a number:'
     puts [
       '1 - List all books',
@@ -96,13 +94,17 @@ class App
     run
   end
 
-  def create_a_rental
-    puts 'Select a book from the following list by number'
+  def list_books_and_index
     @books.map.with_index do |book, i|
       title = book.title
       author = book.author
       puts "#{i}) Title: \"#{title}\", Author: #{author}"
     end
+  end
+
+  def create_a_rental
+    puts 'Select a book from the following list by number'
+    list_books_and_index
     @b_index = gets.chomp.to_i
 
     puts 'Select a person from the following list by number (not id)'
