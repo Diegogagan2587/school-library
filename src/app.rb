@@ -5,8 +5,7 @@ require './rental'
 
 class App
   def initialize
-    puts ' '
-    puts 'Welcome to School Library App!'
+    puts [' ', 'Welcome to School Library App!', ' ']
     @people = []
     @books = []
     @rentals = []
@@ -64,8 +63,7 @@ class App
     @parent_permission = gets.chomp
     @student = Student.new(@age, @classroom, @name, parent_permission: @parent_permission)
     @people.push(@student)
-    puts 'Person created successfully'
-    puts ' '
+    puts ['Person created successfully', ' ']
     run
   end
 
@@ -163,8 +161,6 @@ class App
       create_a_rental
     when '6'
       list_rentals_by_person
-    when '7'
-      exit_app
     else
       run
     end
@@ -173,6 +169,7 @@ class App
   def run
     display_menu
     @answer = gets.chomp.to_s
+    exit_app if @answer == '7'
     execute_answer(@answer)
   end
 end
