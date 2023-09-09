@@ -1,6 +1,7 @@
 require './book'
 require './student'
 require './teacher'
+require './rental'
 
 
 
@@ -10,7 +11,19 @@ class App
     puts ' '
     @students = []
     @teachers = []
+    @people = []
     @books = []
+    # We add Dummy data for testing methods
+    @students.push(Student.new(12,'D', 'Diego'))
+    @students.push(Student.new(13,'D', 'Marcos'))
+    @teachers.push(Teacher.new(30,'Money','Tito'))
+    @teachers.push(Teacher.new(50,'Math','Bruno'))
+    @people.push(Student.new(12,'D', 'Diego'))
+    @people.push(Student.new(13,'D', 'Marcos'))
+    @people.push(Teacher.new(30,'Money','Tito'))
+    @people.push(Teacher.new(50,'Math','Bruno'))
+    @books.push(Book.new('Harry potter 1', 'some one'))
+    @books.push(Book.new('Harry potter 2', 'some one'))
   end
 
   def display_menu
@@ -65,6 +78,7 @@ class App
     @parent_permission = gets.chomp
     @student = Student.new(@age, @classroom, @name, @parent_permission)
     @students.push(@student)
+    @people.push(@student)
     puts 'Person created successfully'
     puts ' '
     run()
@@ -79,6 +93,7 @@ class App
     @specialization = gets.chomp
     @teacher = Teacher.new(@age, @specialization, @name)
     @teachers.push(@teacher)
+    @people.push(@teacher)
     puts 'Person created successfully'
     puts ' '
     run()
@@ -97,7 +112,32 @@ class App
   end
 
   def create_a_rental
-    print 'Select a book from the following list by number'
+    puts 'Select a book from the following list by number'
+    @books.map.with_index { |book, i |
+      title = book.title 
+      author = book.author
+      puts "#{i}) Title: \"#{title}\", Author: #{author}"
+    }
+    @b_index = gets.chomp.to_i
+
+    puts 'Select a person from the following list by number (not id)'
+    @people.each.with_index { |person, i|
+      name = person.name
+      id = person.id
+      age = person.age
+      puts "#{i}) [#{person.class}] Name: #{name}, ID: #{id}, Age: #{age}"
+    }
+    @index_of_person = gets.chomp.to_i
+
+    puts 'Date: '
+    date = gets.chomp
+
+    @rental = Rental.new(date, @books[@b_index], @people[@index_of_person])
+
+    puts 'Rental created successfully'
+    puts ' '
+
+    run()
   end
 
   def run
@@ -113,7 +153,7 @@ class App
     elsif @answer == '4'
       create_a_book()
     elsif @answer == '5'
-      #
+      create_a_rental()
     elsif @answer == '6'
       #
     elsif @answer == '7' || 'exit'
