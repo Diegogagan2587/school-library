@@ -160,6 +160,7 @@ class App
     elsif @answer == '6'
       list_rentals_by_person()
     elsif @answer == '7' || 'exit'
+      puts "Thank you for using this app!"
       return
     else 
       puts 'Please select a valid option'
