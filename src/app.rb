@@ -10,6 +10,7 @@ class App
     puts ' '
     @students = []
     @teachers = []
+    @books = []
   end
 
   def display_menu
@@ -24,6 +25,7 @@ class App
         '7 - Exit'
     ]
   end
+
 
   def create_a_person
     puts 'Do you wnat to create a student (1) or a teacher (2)? [Input the number]:'
@@ -64,6 +66,18 @@ class App
     run()
   end
 
+  def create_a_book
+    print 'Title: '
+    @title = gets.chomp
+    print 'Author: '
+    @author = gets.chomp
+    @book = Book.new(@title, @author)
+    @books.push(@book)
+    puts 'Book created successfully'
+    puts ' '
+    run()
+  end
+
   def run
     display_menu()
     @answer = "#{gets.chomp}"
@@ -75,7 +89,7 @@ class App
     elsif @answer == '3'
       create_a_person()
     elsif @answer == '4'
-      #
+      create_a_book()
     elsif @answer == '5'
       #
     elsif @answer == '6'
