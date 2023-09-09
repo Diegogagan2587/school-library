@@ -35,6 +35,15 @@ class App
     run()
   end
 
+  def list_all_people
+    @students.each { |student|
+      puts "[Student] Name: #{student.name}, ID: #{student.id}, Age: #{student.age}"
+    }
+    @teachers.each { |teacher|
+      puts "[Teacher] Name: #{teacher.name}, ID: #{teacher.id}, Age: #{teacher.age}"
+    }
+  end
+
   def create_a_person
     puts 'Do you wnat to create a student (1) or a teacher (2)? [Input the number]:'
     @input = "#{gets.chomp}"
@@ -93,7 +102,7 @@ class App
     if @answer == '1'
       list_all_books()   
     elsif @answer == '2'
-      #
+      list_all_people()
     elsif @answer == '3'
       create_a_person()
     elsif @answer == '4'
