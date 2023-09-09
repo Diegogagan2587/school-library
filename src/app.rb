@@ -13,8 +13,9 @@ class App
   end
 
   def display_menu
-    puts 'Please choose and option by entering a number:'
     puts [
+      '---------------------------------------------  ',
+      'Please choose and option by entering a number:',
       '1 - List all books',
       '2 - List all people',
       '3 - Create a Person',
@@ -61,7 +62,7 @@ class App
     @name = gets.chomp
     print 'Has parent permission? [Y/N]:'
     @parent_permission = gets.chomp
-    @student = Student.new(@age, @classroom, @name, @parent_permission)
+    @student = Student.new(@age, @classroom, @name, parent_permission: @parent_permission)
     @people.push(@student)
     puts 'Person created successfully'
     puts ' '
@@ -122,8 +123,7 @@ class App
     @rental = Rental.new(date, @books[@b_index], @people[@index_of_person])
     @rentals.push(@rental)
 
-    puts 'Rental created successfully'
-    puts ' '
+    puts ['Rental created successfully', ' ']
 
     run
   end
@@ -131,25 +131,26 @@ class App
   def list_rentals_by_person
     puts 'Id of person: '
     @id_person = gets.chomp
-    @rentals_by_person = @rentals.filter do |rental|
-      rental.person.id.to_i == @id_person.to_i
-    end
 
-    @rentals_by_person.each do |rental|
+    @rentals.each do |rental|
+      next unless rental.person.id.to_i == @id_person.to_i
+
       @date = rental.date
       @book_title = rental.book.title
       @book_author = rental.book.author
       puts "Date: #{@date}, Book \"#{@book_title}\" by #{@book_author}"
     end
+
     run
   end
 
-  def run
-    puts ' '
-    display_menu
-    @answer = gets.chomp.to_s
+  def exit_app
+    puts 'Thank you for using this app!'
+    nil
+  end
 
-    case @answer
+  def execute_answer(answer)
+    case answer
     when '1'
       list_all_books
     when '2'
@@ -163,8 +164,15 @@ class App
     when '6'
       list_rentals_by_person
     when '7'
-      puts 'Thank you for using this app!'
-      nil
+      exit_app
+    else
+      run
     end
+  end
+
+  def run
+    display_menu
+    @answer = gets.chomp.to_s
+    execute_answer(@answer)
   end
 end
