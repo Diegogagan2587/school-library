@@ -119,6 +119,7 @@ class App
     date = gets.chomp
 
     @rental = Rental.new(date, @books[@b_index], @people[@index_of_person])
+    @rentals.push(@rental)
 
     puts 'Rental created successfully'
     puts ' '
