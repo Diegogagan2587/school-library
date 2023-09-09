@@ -162,13 +162,9 @@ class App
       create_a_rental
     when '6'
       list_rentals_by_person
-    when '7', 'exit'
+    when '7'
       puts 'Thank you for using this app!'
       nil
-    else
-      puts ' '
-      puts 'Please select a valid option'
-      run
     end
   end
 end
