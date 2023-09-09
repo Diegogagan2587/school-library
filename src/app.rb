@@ -161,8 +161,6 @@ class App
       create_a_rental
     when '6'
       list_rentals_by_person
-    else
-      run
     end
   end
 
@@ -171,5 +169,6 @@ class App
     @answer = gets.chomp.to_s
     exit_app if @answer == '7'
     execute_answer(@answer)
+    run unless @answer == '7'
   end
 end
