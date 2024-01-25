@@ -106,7 +106,7 @@ Install this project with:
 
 ### Usage
 
-To run the project, make sure you are in `src` folder, then call the app like this:
+To run the project, make sure you are within `src` folder on your terminal, then call the app like this:
 
 ```sh
   ruby main.rb
